@@ -14,8 +14,30 @@ namespace ConsoleApp8
         static public int CalcWater(List<int> depths)
         {
             int result = 0;
+            int max = depths[0];
+            int index = 0;
+            for(int i = 1; i < depths.Count; i++)
+            {
+                if (depths[i] > max)
+                {
+                    max = depths[i];
+                    index = i;
+                }
+            }
+
             int min = depths[0];
-            for (int i = 1; i < depths.Count; i++)
+            for (int i = 1; i < index; i++)
+            {
+                if (depths[i] >= min)
+                {
+                    min = depths[i];
+                }
+                else
+                {
+                    result += min - depths[i];
+                }
+            }
+            for (int i = depths.Count - 1; i > index; i--)
             {
                 if (depths[i] >= min)
                 {
