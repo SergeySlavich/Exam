@@ -37,7 +37,7 @@ namespace ConsoleApp8
                     result += min - depths[i];
                 }
             }
-            for (int i = depths.Count - 1; i > index; i--)
+            for (int i = depths.Count - 2; i > index; i--)
             {
                 if (depths[i] >= min)
                 {
