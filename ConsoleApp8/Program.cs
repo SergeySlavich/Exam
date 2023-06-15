@@ -26,7 +26,7 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
             List<int> list = new List<int>();
-            Console.WriteLine("Введите значения глубин по одному, для окончания ввода введите \"end\":");
+            Console.WriteLine("Введите значения глубин по одному (отрицательными числами), для окончания ввода введите \"end\":");
             string input = null;
             do
             {
