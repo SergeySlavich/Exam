@@ -14,19 +14,24 @@ namespace ConsoleApp8
         static public int CalcWater(List<int> depths)
         {
             int result = 0;
-            foreach(int depth in depths)
+            int min = depths[0];
+            for (int i = 1; i < depths.Count; i++)
             {
-                if(depth < 0)
+                if (depths[i] >= min)
                 {
-                    result += depth;
+                    min = depths[i];
+                }
+                else
+                {
+                    result += min - depths[i];
                 }
             }
-            return -result;
+            return result;
         }
         static void Main(string[] args)
         {
             List<int> list = new List<int>();
-            Console.WriteLine("Введите значения глубин по одному (отрицательными числами), для окончания ввода введите \"end\":");
+            Console.WriteLine("Введите значения высот по одному, для окончания ввода введите \"end\":");
             string input = null;
             do
             {
@@ -41,7 +46,7 @@ namespace ConsoleApp8
                     Console.WriteLine("Невозможно преобразовать в целое число. Попробуйте снова.");
                 }
             } while (input != "end");
-            Console.WriteLine("Вы закончили ввод значений глубин, приступаем к расчету.");
+            Console.WriteLine("Вы закончили ввод значений высот, приступаем к расчету.");
             int volumeWater = CalcWater(list);
             Console.WriteLine($"Количество воды в единицах, которое может удержаться после дождя равно {volumeWater}");
         }
